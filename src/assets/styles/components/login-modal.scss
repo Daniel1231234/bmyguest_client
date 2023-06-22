@@ -1,0 +1,56 @@
+.login-modal {
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.10);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    position: absolute;
+    top: 500%;
+    left: 50%;
+    gap: rem(40px);
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    padding: rem(30px);
+
+    h1 {
+        font-size: rem(28px);
+        font-weight: 600;
+    }
+
+    .inputPsd {
+        background: var(--comboInputGroup_backgroundColor, none);
+        border-radius: 0px 0px 8px 8px;
+        inset: 0px 0px -1px;
+        font-size: 20px;
+        line-height: 1.43;
+        height: rem(50px);
+        width: rem(500px);
+    }
+    .inputUser {
+       
+        border-radius:  8px 8px 0px 0px;
+        font-family: airbnb-bold;
+        font-size: 20px;
+        line-height: 1.43;
+        height: rem(50px);
+        width: rem(500px);
+        border: 1px $clr2;
+    }
+
+
+}
+
+.signup-card {
+    gap: rem(20px);
+}
+
+.google-login{
+    width: 100%;
+    margin-top: rem(20px);
+}

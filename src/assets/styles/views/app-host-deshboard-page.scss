@@ -1,0 +1,242 @@
+.dash-board-header {
+    padding-top: 20px;
+
+    h1 {
+        font-size: 32px;
+        font-family: airbnb-medium;
+        margin-bottom: 5px;
+    }
+}
+
+
+
+.dash-board-details {
+    font-family: airbnb-regular;
+    justify-content: space-between;
+    // align-items: flex-start; 
+    flex-direction: column;
+    gap: 20px;
+
+    @include for-narrow-layout {
+        gap: 40px;
+    }
+
+    @include for-wide-layout {
+        gap: 80px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .dash-board-summary {
+        flex-grow: 2;
+        margin-top: 15.8px;
+        border-radius: 10px;
+        border: 1px solid $clr10;
+        padding: 15px;
+        justify-content: space-between;
+
+        span {
+            color: $clr9;
+        }
+
+        img {
+            align-self: flex-start;
+        }
+
+        .green {
+            color: #75c670;
+        }
+
+
+        h2,
+        h3 {
+            font-family: airbnb-medium;
+        }
+
+        .bottom-pic {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+
+        }
+
+        :first-child {
+            padding-top: 0;
+        }
+
+        >* {
+            padding: 20px 10px;
+            border-bottom: 1px solid $clr10;
+        }
+
+        :last-child {
+            border: none;
+        }
+    }
+
+
+}
+
+.order-list {
+    padding: 0;
+    // width: 65%;
+    flex-grow: 3;
+
+    .order-card {
+        justify-content: space-between;
+        align-items: center;
+        min-height: 150px;
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid $clr7;
+        // position: relative;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px 0px;
+
+        // background-color: rgb(255, 237, 237);
+
+        .pending-svg {
+            height: 150px;
+            width: 100px;
+            position: absolute;
+            right: 200px;
+        }
+
+        .accepted-svg {
+            height: 140px;
+            width: 100px;
+            position: absolute;
+            right: 220px;
+        }
+
+        .order-right-card {
+            gap: 25px;
+
+            .left {
+                display: flex;
+                justify-content: space-between;
+                height: 100%;
+
+                .guest-details-container {
+                    gap: 20px;
+
+                    img {
+                        height: 80px;
+                        width: 80px;
+                        border-radius: 50%;
+                    }
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        >* {
+                            line-height: 20px;
+                            font-size: 18px;
+                        }
+
+                        .username {
+                            font-weight: 800;
+                            color: $clr2;
+                            font-family: airbnb-medium;
+                        }
+                    }
+
+
+                }
+
+                .dates {
+                    font-size: 20px;
+                    color: #222222;
+                    font-family: airbnb-medium;
+                }
+            }
+        }
+
+        h3 {
+            color: $clr7;
+        }
+
+        span {
+            color: $clr9;
+        }
+
+        .right {
+            height: 150px;
+            justify-content: space-between;
+
+            // align-items: flex-end;
+            span {
+                font-size: 20px;
+                color: $clr2;
+            }
+
+            .order-status {
+                align-self: flex-start;
+                border-radius: 10px;
+                padding: 10px 27px;
+                font-size: 16px;
+                font-family: airbnb-medium;
+                min-width: 300px;
+                text-align: center;
+            }
+
+            img {
+                width: 250px;
+                margin-bottom: 20px;
+                z-index: 2;
+
+            }
+        }
+    }
+}
+
+.summary-header {
+    gap: 30px;
+    justify-content: space-between;
+
+    div {
+        width: 70%;
+    }
+
+    img {
+        height: 90px;
+        width: 90px;
+    }
+
+}
+
+.Pending {
+    background-color: #e8e8e8;
+}
+
+.Confirm {
+    background-color: #75c670;
+    align-self: flex-start;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12px;
+    font-family: airbnb-medium;
+    text-align: center;
+}
+
+.Rejected {
+    background-color: lightcoral;
+}
+
+
+@media (max-width: $break-narrow) {
+    .dashboard-host-page {
+        padding: 0 30px;
+
+        .dash-board-header {
+            margin-block-start: 70px;
+        }
+
+        .dash-board-summary {
+            margin-block-end: 70px;
+        }
+    }
+}
