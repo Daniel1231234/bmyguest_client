@@ -1,5 +1,5 @@
 <template >
-    <div class="wishlist-container main-layout">
+    <div class="wishlist-page main-layout"  :class="{ overlay: isOverlay }">
         <h1 @click="show">Wishlist</h1>
         <div v-if="stays" v-for="stay in stays" :key="stay._id">
             <wishlist-preview :stay="stay" />
@@ -21,12 +21,9 @@ export default {
         };
     },
     created() {
-        this.$store.commit({ type: 'setCurrPage', page: 'wishlist-container' })
-        // if (this.wishedStays) this.wishedStays = this.stays.filter((stay) => stay.wished)
+        this.$store.commit({ type: 'setCurrPage', page: 'wishlist-page' })
     },
-    mounted() {
-
-    },
+    mounted() { },
     methods: {
         show() {
             console.log(this.stays)
@@ -39,6 +36,9 @@ export default {
             const staysToShow = res.filter((stay) => stay.wished)
             return staysToShow
         },
+        isOverlay() {
+            return this.$store.getters.isOverlay
+        },
     },
     unmounted() { },
     components: {
@@ -46,5 +46,4 @@ export default {
     }
 };
 </script>
-<style >
-</style>
+<style ></style>

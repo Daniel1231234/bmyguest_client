@@ -159,11 +159,9 @@
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import { toRaw } from "vue";
-
-import imageGallery from "./image-gallery.cmp.vue";
-import ExtrasDetails from "./extras-details.cmp.vue";
-import amenitiesDetails from "./details-amenities.cmp.vue";
-import detailsMap from "../details-map.cmp.vue";
+import imageGallery from "../details/image-gallery.cmp.vue";
+import ExtrasDetails from "../details/extras-details.cmp.vue";
+import amenitiesDetails from "../details/details-amenities.cmp.vue";
 import datePickerMobile from "../date-picker-mobile.cmp.vue";
 import reservationDetailsMobile from "./reservation-details-mobile.cmp.vue";
 
@@ -182,8 +180,6 @@ export default {
   created() {
     this.handleHeader("none");
     this.handleFooter("hidden");
-    // console.log(this.stay);
-
     this.wished = this.stay.wished;
   },
   unmounted() {
@@ -257,7 +253,6 @@ export default {
     imageGallery,
     ExtrasDetails,
     amenitiesDetails,
-    detailsMap,
     datePickerMobile,
     Carousel,
     Slide,

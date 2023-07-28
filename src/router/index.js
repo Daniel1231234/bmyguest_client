@@ -4,7 +4,8 @@ import explorePage from "../pages/explore-page.vue";
 import homePage from "../pages/home-page.vue";
 import stayDetails from "../pages/stay-details.vue";
 import userWishlist from "../pages/user-wishlist.vue";
-import userOrder from "../pages/user-order.vue";
+import register from "../cmps/auth/register.vue";
+import login from "../cmps/auth/login.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -16,6 +17,16 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: homePage,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: login,
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: register,
     },
     {
       path: "/wishlist",
@@ -36,11 +47,6 @@ const router = createRouter({
       path: "/stay/:stayId?",
       name: "stay-details",
       component: stayDetails,
-    },
-    {
-      path: "/orders",
-      name: "orders-page",
-      component: userOrder,
     },
   ],
 });

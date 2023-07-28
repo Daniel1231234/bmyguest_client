@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import stayModul from "./models/stay-model.js";
 import orderModul from "./models/order-model.js";
-import userModul from "./models/user-model.js";
+import userModul from "./models/user-modul.js";
 
 const store = createStore({
   strict: true,

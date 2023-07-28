@@ -2,12 +2,10 @@
     <div class="reviews-layout">
         <h2><i class="fa fa-star"></i> &nbsp;{{ stay.reviewScores.rating / 2 / 10 }} <span class="dot"></span>
             {{ reviews.length }} reviews</h2>
-        <details-rating-bars :stay="stay" />
         <div class="details-review-container">
             <div v-for="review in reviews">
                 <div class="details-review-header flex">
                     <img class="avatar" :src="randomUserImg" alt="">
-                    <!-- <img class="avatar" :src="randomPersonImg"> -->
                     &nbsp;
                     &nbsp;
                     <div class="review-name-container flex column">
@@ -29,7 +27,6 @@
     </div>
 </template>
 <script>
-import detailsRatingBars from './details-rating-bars.cmp.vue';
 import axios from "axios"
 
 export default {
@@ -67,7 +64,6 @@ export default {
     },
     unmounted() { },
     components: {
-        detailsRatingBars
     }
 };
 </script>

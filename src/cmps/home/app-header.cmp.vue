@@ -38,7 +38,7 @@
 import datePicker from "./date-picker.cmp.vue";
 import headerNav from "./header-nav.cmp.vue";
 import openHeader from "./open-header.cmp.vue";
-import openHeaderMobile from "./open-header-mobile.cmp.vue";
+import openHeaderMobile from "../mobile/open-header-mobile.cmp.vue";
 import headerFilter from "./header-filter.cmp.vue";
 import headerMobile from "../mobile/header-mobile.vue";
 
@@ -77,7 +77,7 @@ export default {
             if (window.scrollY > this.pageTop + 100 || window.scrollY < this.pageTop - 100) {
                 this.$store.commit({ type: "setOpenHeader", currVal: false });
                 this.$store.commit({ type: "setOverlay", overlay: false })
-            } 
+            }
             if (this.appPage === "home-page") {
                 this.$store.commit({ type: "setShowLabels", show: true });
             }
@@ -93,7 +93,7 @@ export default {
             this.$store.commit({ type: "setOpenHeader", currVal: true });
             this.$store.commit({ type: "setOverlay", overlay: true })
 
-            if (this.appPage === "explore-app") {
+            if (this.appPage === "explore-page") {
                 this.$store.commit({ type: "setShowFilterBtn", show: false });
             }
 

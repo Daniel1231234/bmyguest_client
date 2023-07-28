@@ -75,13 +75,6 @@ export default {
         checkin: this.dates[0],
         checkout: this.dates[1],
         guests: this.guestsCount,
-        // guestsDetails: {
-        //     guestId: this.loggedinUser._id,
-        //     guestName: this.loggedinUser.fullname,
-        //     imgUrl: this.loggedinUser.imgUrl,
-        //     phone: this.loggedinUser.phone,
-        //     email: this.loggedinUser.email
-        // },
         price: this.stay.price,
         totalPrice: this.totalPrice,
         stayId: this.stay._id,
@@ -98,7 +91,6 @@ export default {
         createAt: this.getCreateAt(),
       };
       this.$store.dispatch({ type: "saveOrder", order: orderDet });
-      socketService.emit("order-added", orderDet);
       this.$router.push("/");
     },
     handleGuests(val) {

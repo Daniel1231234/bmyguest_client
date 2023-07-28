@@ -49,7 +49,6 @@ export default {
         },
         childrenCount(num) {
             this.children += num
-            // this.$emit()
         },
     },
     unmounted() {

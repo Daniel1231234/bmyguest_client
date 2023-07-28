@@ -1,10 +1,9 @@
-
-footer{
+footer {
     background-color: rgb(243, 243, 243);
-    
+
 }
 
-.app-footer{
+.app-footer {
     height: 366px;
     display: flex;
     justify-content: space-between;
@@ -14,24 +13,29 @@ footer{
     padding-top: 49px;
     padding-bottom: 49px;
     align-items: flex-start;
-    span:hover{
+
+    span:hover {
         text-decoration: underline;
         cursor: pointer;
     }
-    >*{
+
+    >* {
         gap: 13px;
-        >*:first-child{
+
+        >*:first-child {
             font-family: airbnb-bold;
         }
     }
-   
+
 }
-.footer-bottom{
+
+.footer-bottom {
     height: 69px;
     justify-content: space-between;
     align-items: center;
     max-width: 1120px;
-    .footer-bottom-txt{
+
+    .footer-bottom-txt {
         display: flex;
         align-items: center;
         gap: 8px;

@@ -58,7 +58,7 @@
 
 <script>
 import headerFilter from '../home/header-filter.cmp.vue';
-import openHeaderMobile from '../home/open-header-mobile.cmp.vue';
+import openHeaderMobile from './open-header-mobile.cmp.vue';
 
 export default {
     name: "header-mobile",

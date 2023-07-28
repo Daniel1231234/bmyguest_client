@@ -23,10 +23,6 @@
     </div>
     <div class="right flex column">
       <img :src="'/img/Images/' + order.stay.imgUrl" alt="" />
-
-
-
-
     </div>
   </div>
 </template>
@@ -46,9 +42,6 @@ export default {
   },
   created() {
     this.newOrder = { ...this.order }
-    socketService.on('order-change', (newOrder) => {
-      this.order.status = newOrder.status
-    })
   },
   methods: {
     changeStatus() {

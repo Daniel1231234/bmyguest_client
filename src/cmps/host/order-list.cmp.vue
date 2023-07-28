@@ -1,9 +1,7 @@
 <template>
-
   <ul class="order-list" v-if="orders">
     <orderPreview @changeStatus="changeStatus" v-for="order in  orders" :order="order" :key="order._id" />
   </ul>
-
 </template>
 
 <script>

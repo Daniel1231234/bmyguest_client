@@ -38,7 +38,7 @@
               <div class="footer-bottom main-layout flex">
                 <div class="footer-bottom-txt">
                     <span>&copy;</span>
-                    <span>2022 BmyGuest, inc</span>
+                    <span>2023 BmyGuest, inc</span>
                     <span class="dot"></span>
                     <span>Privacy</span>
                     <span class="dot"></span>

@@ -1,5 +1,5 @@
 <template>
-  <section class="explore-app" v-if="stays">
+  <section class="explore-page" v-if="stays" :class="{ overlay: isOverlay }">
     <main-filter :stays="stays" />
     <stay-list @addToWishList="addToWishList" v-if="stays" :stays="stays" />
     <div v-else="loader()"></div>
@@ -9,12 +9,11 @@
 <script>
 import stayList from '../cmps/home/stay-list.cmp.vue'
 import mainFilter from '../cmps/filter.cmp.vue'
-import { ElLoading } from 'element-plus'
 
 export default {
   name: 'explore-page',
   created() {
-    this.$store.commit('setCurrPage', { page: 'explore-app' })
+    this.$store.commit({ type: "setCurrPage", page: "explore-page" })
   },
   data() {
     return {
@@ -23,28 +22,14 @@ export default {
   },
   methods: {
     async addToWishList(stay) {
-      // this.isLoading = true
-      // this.loader()
       try {
         let newStay = { ...stay }
-        // let newStay = structuredClone(stay)
         newStay.wished = !newStay.wished
         this.$store.dispatch({ type: 'saveStay', stay: newStay })
         await this.$store.dispatch({ type: 'loadStays' })
-        // this.isLoading = false
-        // this.loader()
       } catch (err) {
         console.log(err)
       }
-    },
-    loader() {
-      const loader = ElLoading.service({
-        lock: true,
-        text: 'Loading',
-        background: 'rgba(0, 0, 0, 0.7)',
-      })
-      if (this.isLoading) return loader
-      else loader.close()
     },
   },
   computed: {
@@ -53,18 +38,14 @@ export default {
     },
     isHeaderOpen() {
       return this.$store.getters.openHeader
-    }
+    },
+    isOverlay() {
+      return this.$store.getters.isOverlay
+    },
   },
   components: {
     stayList,
     mainFilter
   },
-  // watch: {
-  //   isLoading1() {
-  //     if (this.isLoading) {
-  //       this.loader()
-  //     }
-  //   }
-  // }
 }
 </script>

@@ -22,10 +22,6 @@
 <script>
 export default {
     props: {
-        // bottom: {
-        //     type: Number,
-        //     required: true,
-        // },
         priceSummary: {
             type: Object,
             required: true,

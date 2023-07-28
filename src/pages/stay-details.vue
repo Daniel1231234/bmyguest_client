@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import detailsMap from "../cmps/details-map.cmp.vue";
+// import detailsMap from "../cmps/details-map.cmp.vue";
 import imgGallery from "../cmps/details/image-gallery.cmp.vue";
 import detailsHeader from "../cmps/details/details-header.cmp.vue";
 import reservationDetails from "../cmps/details/reservation-details.cmp.vue";
@@ -36,7 +36,7 @@ import detailsDescription from "../cmps/details/details-description.cmp.vue";
 import deatilsStickyHeader from "../cmps/details/deatils-sticky-header.cmp.vue";
 import detailsReviews from "../cmps/details/details-reviews.cmp.vue";
 import appFooter from "../cmps/app-footer.cmp.vue";
-import stayDetailsMobile from "../cmps/details/stay-details-mobile.cmp.vue";
+import stayDetailsMobile from "../cmps/mobile/stay-details-mobile.cmp.vue";
 import notFound from "../cmps/notFound.vue";
 import loader from "../cmps/loader.cmp.vue";
 import { toRaw } from "vue";
@@ -106,7 +106,7 @@ export default {
     deatilsStickyHeader,
     detailsReviews,
     appFooter,
-    detailsMap,
+    // detailsMap,
     stayDetailsMobile,
     notFound,
     loader,

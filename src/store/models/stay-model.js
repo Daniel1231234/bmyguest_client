@@ -13,19 +13,12 @@ export default {
       dates: [],
       guests: 0,
     },
-    sortBy: {},
-    imgToDisplayCard: {},
     labels: stayService.getLabels(),
-    currDate: [],
-    orders: [],
-    currHostStay: [],
+    dates: [],
   },
   getters: {
     stays(state) {
       return state.stays;
-    },
-    getImg(state) {
-      return state.imgToDisplay;
     },
     getLebels(state) {
       return state.labels;
@@ -33,14 +26,8 @@ export default {
     getCurrStay(state) {
       return state.currStay;
     },
-    getIsWished(state) {
-      return state.currStay.wished;
-    },
     getCurrDate(state) {
       return state.currDate;
-    },
-    getCurrHostStay(state) {
-      return state.currHostStay;
     },
   },
   mutations: {
@@ -53,21 +40,11 @@ export default {
     setStayById(state, { stay }) {
       state.currStay = stay;
     },
-    wishStay(state) {
-      state.currStay.wished = !state.currStay.wished;
-    },
     setFilterBy(state, { filterBy }) {
       state.filterBy = filterBy;
     },
     setCurrDate(state, { date }) {
       state.currDate = date;
-    },
-    setCurrStay1(state, { stay }) {
-      state.currStay = stay;
-    },
-    setHostStays(state, { id }) {
-      let stayHost = state.stays.filter((stay) => stay.host.id === id);
-      state.currHostStay = stayHost;
     },
   },
   actions: {
@@ -90,15 +67,6 @@ export default {
         console.log("Error in getById stays (store)", err);
         throw err;
       }
-    },
-
-    wishStay({ commit }, { stay }) {
-      stayService.update(stay);
-      commit({ type: "setStayById", stay });
-      commit({ type: "wishStay" });
-    },
-    loadCurrDate({ commit }, { date }) {
-      commit({ type: "setCurrDate", date });
     },
     async saveStay({ commit }, { stay }) {
       try {

@@ -76,14 +76,7 @@
             padding-top: 10px;
 
         }
-
-        // @include for-narrow-layout {
-        //     display: none;
-        // }
     }
-
-
-
 }
 
 .mini-search {
@@ -121,7 +114,6 @@
 
     span {
         border: none;
-        // margin-inline-start: 4px;
     }
 
     &:hover {
@@ -152,8 +144,6 @@
         content: ' Start your search'
     }
 }
-
-
 
 
 
@@ -229,19 +219,12 @@
 
 }
 
-
-
-
-
 @media (max-width: $break-narrow) {
-
     .app-header,
     .top-header {
         display: none;
     }
 }
-
-
 
 .mob-open-header {
     background-color: #F7F7F7;

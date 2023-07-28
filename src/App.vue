@@ -5,18 +5,12 @@
     <div>
       <router-view />
     </div>
-    <user-msg />
   </main>
 </template>
 
-
 <script>
-import userMsg from './cmps/user-msg.cmp.vue';
 import appFooter from './cmps/app-footer.cmp.vue'
 import appHeader from './cmps/home/app-header.cmp.vue'
-
-import debounce from 'lodash/debounce';
-
 
 export default {
   data() {
@@ -37,12 +31,11 @@ export default {
     },
     appPage() {
       return this.$store.getters.currPage
-    }
+    },
   },
   components: {
     appFooter,
     appHeader,
-    userMsg,
   },
 }
 </script>

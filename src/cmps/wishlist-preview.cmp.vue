@@ -16,7 +16,6 @@
                     <span class="gray">({{ stay.reviews.length }} reviews)</span></span>
                 <div>
                     <p> <span class="price">${{ stay.price }} &nbsp;</span>night</p>
-                    <!-- <p>${{stay.price * nights}} total</p> -->
                 </div>
             </div>
         </div>

@@ -19,45 +19,18 @@
 
         <div class="user-nav-container" v-if="showMenu" @click="showMenu = false">
             <div class="user-nav flex column">
-                <a v-if="!user" @click="isModalLoginSingUp = !isModalLoginSingUp">login</a>
-                <a v-if="!user" @click="isModalLoginSingUp = !isModalLoginSingUp">register</a>
-                <router-link to="#">Notifications</router-link>
-                <router-link v-if="user" :user="user" to="/orders">Orders</router-link>
+                <router-link v-if="!user.loggedIn" to="/login">Login</router-link>
+                <router-link v-if="!user.loggedIn" to="/register">Register</router-link>
+                <button v-if="user.loggedIn" @click="signOut" class="signout-btn">Signout</button>
                 <router-link to="/wishlist">Wishlist</router-link>
             </div>
         </div>
     </div>
-    <div v-if="this.isModalLoginSingUp" class="modal-reserv-overlay">
-    </div>
-    <div v-if="this.isModalLoginSingUp" class="login-modal flex">
-        <div class="top-of-register flex justify-between ">
-            <h2>Log in or sign up</h2>
-            <svg @click="isModalLoginSingUp = !isModalLoginSingUp" class="clickable" viewBox="0 0 32 32"
-                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
-                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
-                <path d="m6 6 20 20"></path>
-                <path d="m26 6-20 20"></path>
-            </svg>
-        </div>
-        <register @login="login" />
-    </div>
-    <div v-if="this.isModalLoginSingUp" class="modal-reserv-overlay">
-    </div>
-    <div v-if="this.isModalLoginSingUp" class="login-modal flex">
-        <div class="top-of-register flex justify-between ">
-            <h2>Log in or sign up</h2>
-            <svg @click="isModalLoginSingUp = !isModalLoginSingUp" class="clickable" viewBox="0 0 32 32"
-                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
-                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
-                <path d="m6 6 20 20"></path>
-                <path d="m26 6-20 20"></path>
-            </svg>
-        </div>
-        <register @login="login" />
-    </div>
 </template>
 <script>
-import register from './register.cpm.vue'
+import { toRaw } from 'vue';
+import { auth } from '../../services/auth.service';
+
 export default {
     name: 'header-nav',
     props: {
@@ -69,39 +42,54 @@ export default {
         return {
             showMenu: false,
             isShowDropdownMenu: false,
-            user: null,
             admin: null,
-            isModalLoginSingUp: false,
         };
     },
     created() {
         window.addEventListener("scroll", this.handleScroll)
+        auth.onAuthStateChanged(user => {
+            console.log(user)
+            this.$store.dispatch("fetchUser", user)
+        })
+    },
+    mounted(){
+        console.log(this.user)
     },
     unmounted() {
         window.removeEventListener("scroll", this.handleScroll)
     },
     methods: {
-        async login() {
-            console.log('here');
-            const loggedinUser = await this.$store.getters.loggedinUser
-            this.user = loggedinUser
-            this.isModalLoginSingUp = false
-        },
         handleScroll() {
             if (window.scrollY) {
                 this.showMenu = false
             }
         },
+        async signOut() {
+            await this.$store.dispatch("logOut")
+        }
     },
     computed: {
         currPage() {
             return this.$store.getters.currPage
+        },
+        user() {
+            return toRaw(this.$store.getters.user)
         }
     },
     unmounted() { },
     components: {
-        register,
 
     },
 };
 </script>
+
+
+<style>
+.signout-btn {
+    cursor: pointer;
+    padding: .5rem;
+    font-weight: bold;
+    color: red;
+    border:none;
+}
+</style>

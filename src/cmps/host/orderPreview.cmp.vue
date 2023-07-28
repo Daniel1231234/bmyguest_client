@@ -35,7 +35,6 @@
 
 <script>
 
-import { socketService } from '../../services/socket.service'
 export default {
   props: {
     order: {
@@ -61,20 +60,12 @@ export default {
     // console.log('orderr', this.newOrder);
   },
   methods: {
-    // changeStatus() {
-    //   let newOrder = { ...this.order }
-    //   newOrder.status = this.currStatus
-    //   console.log(newOrder, "new order")
-    //   this.$emit('changeStatus', newOrder)
-    // },
-
     changeStatus() {
       console.log(this.order.status)
       this.$store.dispatch({
         type: 'changeOrderStatus',
         order: this.newOrder
       })
-      socketService.emit('order-change', this.newOrder)
       this.$emit('changeStatus', this.newOrder)
     },
     setupImgUrl() {
